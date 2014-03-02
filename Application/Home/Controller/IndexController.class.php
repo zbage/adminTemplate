@@ -3,11 +3,14 @@
 namespace Home\Controller;
 
 use Common\Controller\ApiController;
+use Common\Services\Category;
 
 class IndexController extends ApiController
 {
 	public function index()
 	{
-		S('time',time());
+		$category = new Category();
+		$this->assign('category', $category->getCategorys());
+		$this->display();
 	}
 }

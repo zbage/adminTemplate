@@ -13,7 +13,7 @@ class CategoryModel extends Model
 	);
 
 	/**
-	 * 生成分类别名
+	 * 生成文章别名
 	 * @return bool|mixed|string
 	 */
 	public function getAlias()

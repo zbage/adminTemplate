@@ -1,0 +1,33 @@
+<extend name="Public/base" />
+<block name="title">
+</block>
+<block name="nav">
+	<volist name="category" id="row">
+		<li><a href="{:U('home/category/'.$row['alias'])}" title="{$row.name}"><i class="icon-star"></i> {$row.name}</a></li>
+	</volist>
+</block>
+<block name="body">
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span7">
+				<!--body-->
+				<article class="item">
+					<h4><a href="#">深入分析String的equals和== </a> <span class="label label-important"><i class="icon-eye-open"></i> 200</span></h4>
+					<p><i class="icon-calendar"></i> 2014-01-01 分类：<a href="#" title="123">PHP教程</a></p>
+					<p>String 对象的equals ==的深入分析 String对象并没有我想象的那么简单，其中的String池就是被我误解的地方 这里我就参考一些资料以及自己的理解来分析一下这String对象的equals == 以及 String池 从代码上开始看 public class TestString { public static void main(String[] args) { String s1 = "Mo...</p>
+				</article>
+				<article class="item">
+					<h4>深入分析String的equals和== <span class="label label-important"><i class="icon-eye-open"></i> 200</span></h4>
+					<p><i class="icon-calendar"></i> 2014-01-01 分类：<a href="#" title="123">PHP教程</a></p>
+					<p>String 对象的equals ==的深入分析 String对象并没有我想象的那么简单，其中的String池就是被我误解的地方 这里我就参考一些资料以及自己的理解来分析一下这String对象的equals == 以及 String池 从代码上开始看 public class TestString { public static void main(String[] args) { String s1 = "Mo...</p>
+				</article>
+			</div>
+			<div class="span4">
+				<!--info-->
+			</div>
+		</div>
+	</div>
+</block>
+<block name="js">
+	<script src="/resource/js/home.js"></script>
+</block>

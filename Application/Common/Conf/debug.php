@@ -8,9 +8,10 @@ return array(
 	'DB_PWD' => 'root',
 	'DB_PREFIX' => '',
 	'DB_NAME' => 'blog',
-	'SHOW_PAGE_TRACE' => true,
+	//'SHOW_PAGE_TRACE' => true,
 	'URL_CASE_INSENSITIVE' => true,
 	'DATA_CACHE_TYPE' => 'Db',
 	'DATA_CACHE_TABLE' => 'cache',
-	'LOAD_EXT_CONFIG' => 'attributes',
+	'URL_PARAMS_BIND' => true,
+
 );
