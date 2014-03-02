@@ -1,7 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Administrator
- * Date: 14-3-2
- * Time: 下午3:17
- */ 
+
+define('APP_DEBUG',true);
+define('APP','./Application/');
+define('BUILD_DIR_SECURE', false);
+define('THINK_PATH','./ThinkPHP/');
+require THINK_PATH.'ThinkPHP.php';
