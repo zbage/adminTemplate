@@ -43,8 +43,68 @@ class ArticleModel extends Model
 		if (empty($description))
 		{
 			$content = htmlspecialchars_decode(I('content'));
-			$description = cn_substr(strip_tags($content),0,128);
+			$description = cn_substr(strip_tags($content), 0, 128);
 		}
 		return $description;
+	}
+
+	/**
+	 * 获取文章
+	 * @param string $alias
+	 * @return bool
+	 */
+	public function getArticle($alias = '')
+	{
+		$data = $this->getByAlias($alias);
+		if (!empty($data))
+		{
+			//查询附表
+			$content = M('Content');
+			$tmp = $content->field('content')->getByArticleId($data['id']);
+			$data['content'] = $tmp['content'];
+			return $data;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	public function alias2id($alias = '')
+	{
+		$data = $this->field('id')->getByAlias($alias);
+		if(is_array($data)){
+			return $data['id'];
+		}else{
+			return false;
+		}
+	}
+
+	/**
+	 * 赞
+	 * @param int $id
+	 * @return bool
+	 */
+	public function praise($id = 0)
+	{
+		$this->find($id);
+		$this->good++;
+		if($this->save())
+			return true;
+		return false;
+	}
+
+	/**
+	 * 踩
+	 * @param int $id
+	 * @return bool
+	 */
+	public function down($id = 0)
+	{
+		$this->find($id);
+		$this->bad++;
+		if($this->save())
+			return true;
+		return false;
 	}
 } 

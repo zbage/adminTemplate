@@ -53,4 +53,5 @@ class Article {
 		}
 		return $data;
 	}
+
 } 

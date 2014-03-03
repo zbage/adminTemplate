@@ -2,11 +2,11 @@
 <html>
 <head>
 	<title>
-		<block name="title"></block>
+			<block name="title"></block> - {$settings.sitename}
 	</title>
 	<meta charset="UTF-8">
-	<meta name="keywords" content="">
-	<meta name="description" content="">
+	<meta name="keywords" content="{$settings.keywords}">
+	<meta name="description" content="{$settings.description}">
 	<link href="/resource/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/resource/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 	<link href="/resource/css/style.css" rel="stylesheet">
@@ -22,12 +22,13 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="brand en" href="__APP__">Just Think</a>
+				<a class="brand en" href="/">Just Think</a>
 
 				<div class="nav-collapse collapse">
 					<ul class="nav">
-						<block name="nav">
-						</block>
+						<volist name="category" id="row">
+							<li><a href="{:U('home/category/'.$row['alias'])}" title="{$row.name}"><i class="icon-star"></i> {$row.name}</a></li>
+						</volist>
 					</ul>
 					<ul class="nav pull-right">
 						<li>

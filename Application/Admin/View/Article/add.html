@@ -34,11 +34,12 @@
 			</div>
 			<div class="control-group">
 				<label class="control-label">标签</label>
-				<div class="controls">
+				<div class="controls" id="tag_list">
 					<volist name="tags" id="row">
 						<li><input type="checkbox" name="tags[]" value="{$row.id}"> {$row.name} </li>
 					</volist>
 				</div>
+
 			</div>
 			<div class="control-group">
 				<label class="control-label">文章简介</label>

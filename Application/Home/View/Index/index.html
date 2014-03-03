@@ -1,10 +1,6 @@
 <extend name="Public/base" />
 <block name="title">
-</block>
-<block name="nav">
-	<volist name="category" id="row">
-		<li><a href="{:U('home/category/'.$row['alias'])}" title="{$row.name}"><i class="icon-star"></i> {$row.name}</a></li>
-	</volist>
+	首页
 </block>
 <block name="body">
 	<div class="container-fluid">
@@ -16,6 +12,7 @@
 						<h4><a href="/home/article/{$row.alias}">{$row.title}</a> <span class="label label-important"><i class="icon-eye-open"></i> {$row.hits}</span></h4>
 						<p><i class="icon-calendar"></i> {$row.timestamp|date='Y-m-d',###} 分类：<a href="/home/category/{$row.category_id|getCategoryAlias}">{$row.category_id|getCategory}</a></p>
 						<p>{$row.description}</p>
+
 					</article>
 				</volist>
 			</div>

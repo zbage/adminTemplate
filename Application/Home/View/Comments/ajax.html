@@ -1,0 +1,21 @@
+<empty name="list">
+	<i class="icon-comments-alt icon-2x"></i> 暂无评论，快来留下你的第一条评论吧！
+	<else />
+	<volist name="list" id="row">
+		<eq name="i" value="1">
+			<div class="comment">
+				<p class="pull-left"><i class="icon-user"></i> 昵称：{$row.name|htmlspecialchars_decode}</p>
+				<p class="pull-right">沙发</p>
+				<div class="clearfix"></div>
+				<p><i class="icon-time"></i> {$row.timestamp|date='Y-m-d H:i:s',###} <i class="icon-map-marker"></i> {$row.address|long2ip|replaceAddress}</p>
+				<p>{$row.content|htmlspecialchars_decode}</p>
+				<else />
+				<div class="comment">
+					<p><i class="icon-user"></i> 昵称：{$row.name|htmlspecialchars_decode}</p>
+					<p><i class="icon-time"></i> {$row.timestamp|date='Y-m-d H:i:s',###} <i class="icon-map-marker"></i> {$row.address|long2ip|replaceAddress}</p>
+					<p>{$row.content|htmlspecialchars_decode}</p>
+				</div>
+			</div>
+		</eq>
+	</volist>
+</empty>

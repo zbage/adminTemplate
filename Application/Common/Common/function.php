@@ -51,3 +51,15 @@ function getCategoryAlias($id = 0)
 		return $data['alias'];
 	}
 }
+
+/**
+ * 隐藏IP
+ * @param string $address
+ * @return mixed
+ */
+function replaceAddress($address = '')
+{
+	$pattern = '/(\.[\d]{1,3}){2}$/';
+	$str = preg_replace($pattern,'.***',$address);
+	return $str;
+}

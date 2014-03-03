@@ -4,7 +4,7 @@ body{
 	width: 80%;
 	margin: 0 auto;
 }
-input,textarea,select{
+input,textarea,select,button{
 	font-family: "Consolas","Microsoft Yahei","Arial",monospace;
 }
 
@@ -31,4 +31,15 @@ div.hero-unit{
 }
 .font16{
 	font-size: 16px;
+}
+section.content{
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	padding: 20px;
+}
+section.comments{
+	margin: 10px 0;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	padding: 20px;
 }

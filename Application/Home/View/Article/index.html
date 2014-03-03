@@ -1,0 +1,125 @@
+<extend name="Public/base" />
+<block name="title">
+	{$data.title}
+</block>
+<block name="body">
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span7">
+				<!--body-->
+				<article>
+					<h3>{$data.title}</h3>
+
+					<p><i class="icon-calendar"></i> {$data.timestamp|date='Y-m-d',###} 分类：<a href="/home/category/{$data.category_id|getCategoryAlias}">{$data.category_id|getCategory}</a></p>
+
+					<p>简介：{$data.description}</p>
+					<section class="content">
+						{$data.content}
+						<div class="operation span2">
+							<button class="btn" id="good"><i class="icon-hand-up"></i> <span id="goods">{$data.good}</span></button>
+							<button class="btn" id="bad"><i class="icon-hand-down"></i> <span id="bads">{$data.bad}</span> </button>
+						</div>
+						<div class="share">
+							<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a
+								href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+							<script>window._bd_share_config = {"common": {"bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16"}, "share": {}, "image": {"viewList": [
+								"qzone", "tsina", "tqq", "renren", "weixin"
+							], "viewText": "分享到：", "viewSize": "16"}, "selectShare": {"bdContainerClass": null, "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "weixin"]}};
+							with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+ ~(-new Date()/36e5)];</script>
+						</div>
+						<div class="clearfix"></div>
+					</section>
+				</article>
+				<p></p>
+
+				<p id="loading" class="hidden"><i class="icon-spin icon-spinner icon-2x"></i> 加载中...</p>
+				<section class="comments">
+					<div id="comments">
+					</div>
+				</section>
+				<section class="comments">
+					<form action="/home/comments/post" method="post" id="form">
+						<input type="hidden" name="article_id" value="{$data.id}">
+						<fieldset>
+							<div class="control-group">
+								<label class="control-label"><i class="icon-user"></i> 昵称</label>
+
+								<div class="controls">
+									<input type="text" name="name" id="name" required="" class="input-xlarge" maxlength="10" placeholder="输入你的昵称~">
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label"><i class="icon-envelope"></i> 邮箱</label>
+
+								<div class="controls">
+									<input type="email" name="email" id="email" required="" class="input-xlarge" maxlength="40" placeholder="输入你邮箱~">
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label"><i class="icon-star"></i> 评论内容</label>
+
+								<div class="controls">
+									<textarea id="content" name="content" required="" rows="6" maxlength="256" class="input-xxlarge" placeholder="快来评论吧！">
+									</textarea>
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="controls">
+									<button class="btn btn-info"><i class="icon-comments"></i> 评论</button>
+								</div>
+							</div>
+						</fieldset>
+					</form>
+				</section>
+			</div>
+			<div class="span4">
+				<!--info-->
+			</div>
+		</div>
+	</div>
+</block>
+<block name="js">
+	<script src="/resource/jquery/jquery.form.js"></script>
+	<script>
+		$(function() {
+			$(document).ajaxStart(function(){
+				$("#loading").show();
+			})
+			$(document).ajaxComplete(function(){
+				$("#loading").hide();
+			});
+			$("#comments").load('/home/comments/ajax/alias/{$data.alias}');
+			$("#content").html('');
+			$("#form").submit(function() {
+				$(this).ajaxSubmit(function(data){
+					if(data.status == 1){
+						var html = '<div class="comment"><p><i class="icon-user"></i> 昵称：'+data.data.name+'</p>' +
+						           '<p><i class="icon-time"></i> '+data.data.time+' <i class="icon-map-marker"></i> '+data.data.address+'</p>' +
+						           '<p>'+data.data.content+'</p></div>';
+						$("#comments").append(html);
+						$("#form")[0].reset();
+					}else{
+						alert(data.info);
+					}
+				},'json');
+				return false;
+			});
+			$("#good,#bad").click(function(){
+				var $button = $(this);
+				var id = $(this).attr('id');
+				var ajax;
+				if(ajax) ajax.abort;
+				$button.prop('disabled',true);
+				ajax = $.get('/home/article/api/id/{$data.id}',{type:id},function(data){
+					if(data == 1)
+					{
+						$("#"+id+"s").text(parseInt($("#"+id+"s").text())+1);
+					}else{
+						alert('您已经操作过啦!');
+					}
+					$button.prop('disabled',false);
+				});
+			});
+		});
+	</script>
+</block>

@@ -6,7 +6,6 @@ function titleChange()
 	});
 }
 
-
 $(function(){
 	titleChange();
 });
