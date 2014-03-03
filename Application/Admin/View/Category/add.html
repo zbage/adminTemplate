@@ -1,0 +1,45 @@
+<extend name="Public/base" />
+<block name="body">
+	<div class="hero-unit">
+		<h2>添加栏目</h2>
+	</div>
+	<form action="/admin/category/insert" class="form-horizontal" method="post">
+		<fieldset>
+			<div class="control-group">
+				<label class="control-label">栏目名称</label>
+				<div class="controls">
+					<input type="text" name="name" required="" maxlength="20" autofocus="">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">栏目别名</label>
+
+				<div class="controls">
+					<input type="text" name="alias" required="">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">栏目排序</label>
+
+				<div class="controls">
+					<input type="number" name="rank" required="" maxlength="3">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">栏目状态</label>
+				<div class="controls">
+					<select name="status">
+						<option value="1">显示</option>
+						<option value="0">隐藏</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<div class="controls">
+					<input type="submit" value="提交" class="btn btn-primary">
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</block>

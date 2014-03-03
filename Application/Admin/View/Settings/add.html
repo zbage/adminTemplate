@@ -1,0 +1,35 @@
+<extend name="Public/base" />
+<block name="body">
+	<div class="hero-unit">
+		<h2>增加配置</h2>
+	</div>
+	<form action="/admin/settings/insert" class="form-horizontal" method="post">
+		<fieldset>
+			<div class="control-group">
+				<label class="control-label">配置项说明</label>
+				<div class="controls">
+					<input type="text" name="tips" required="" maxlength="20" autofocus="">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">配置项名称</label>
+
+				<div class="controls">
+					<input type="text" name="name" class="input-xxlarge" required="">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">配置项值</label>
+
+				<div class="controls">
+					<input type="text" name="value" required="" maxlength="20">
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<input type="submit" value="提交" class="btn btn-primary">
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</block>

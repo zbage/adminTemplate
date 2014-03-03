@@ -1,0 +1,36 @@
+	<table class="table table-bordered table-hover">
+		<tr>
+			<th><input type="checkbox" id="checkAll"></th>
+			<th>ID</th>
+			<th>名称</th>
+			<th>发表日期</th>
+			<th>赞数</th>
+			<th>踩数</th>
+			<th>点击数</th>
+			<th>状态</th>
+			<th>栏目</th>
+			<th>排序</th>
+			<th>操作</th>
+		</tr>
+		<volist name="list" id="row">
+			<tr>
+				<td><input type="checkbox" class="id" value="{$row.id}"></td>
+				<td>{$row.id}</td>
+				<td>{$row.title}</td>
+				<td>{$row.timestamp|date='Y-m-d',###}</td>
+				<td>{$row.good}</td>
+				<td>{$row.bad}</td>
+				<td>{$row.hits}</td>
+				<td><input type="number" value="{$row.status}" name="status" required="" pattern="[\d]"></td>
+				<td>{$row.category_id|getCategory}</td>
+				<td><input type="number" value="{$row.rank}" name="rank" required="" pattern="[\d]+"></td>
+				<td><a href="/admin/article/edit/id/{$row.id}">编辑</a> </td>
+			</tr>
+		</volist>
+	</table>
+<div class="pagination page">
+	<ul>
+		{$page}
+	</ul>
+</div>
+<input type="hidden" id="url" value="/admin/article/save">

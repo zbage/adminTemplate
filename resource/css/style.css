@@ -4,7 +4,7 @@ body{
 	width: 80%;
 	margin: 0 auto;
 }
-input,textarea{
+input,textarea,select{
 	font-family: "Consolas","Microsoft Yahei","Arial",monospace;
 }
 

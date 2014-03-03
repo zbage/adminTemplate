@@ -2,7 +2,7 @@
 /**
  * Time: 14-3-2 下午4:20
  */
-namespace Common\Controller;
+namespace Home\Model;
 
 use Think\Model;
 

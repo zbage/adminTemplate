@@ -1,0 +1,20 @@
+<extend name="Public/base" />
+<block name="body">
+	<div class="hero-unit">
+		<h2>配置管理</h2>
+	</div>
+	<div class="btn-group span2">
+		<a href="{:U('add')}" class="btn"><i class="icon-plus-sign"></i> </a>
+		<a href="" class="btn"><i class="icon-refresh"></i> </a>
+	</div>
+	<div class="progress progress-striped active span4 hide" id="loading" style="width: 300px">
+		<div class="bar" style="width: 100%;"></div>
+	</div>
+	<div class="clearfix"></div>
+	<p></p>
+	<div id="list">
+	</div>
+</block>
+<block name="js">
+	<script src="/resource/js/admin.js"></script>
+</block>

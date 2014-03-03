@@ -1,0 +1,22 @@
+	<table class="table table-bordered table-hover">
+		<tr>
+			<th><input type="checkbox" id="checkAll"></th>
+			<th>ID</th>
+			<th>名称</th>
+			<th>别名</th>
+		</tr>
+		<volist name="list" id="row">
+			<tr>
+				<td><input type="checkbox" class="id" value="{$row.id}"></td>
+				<td>{$row.id}</td>
+				<td><input type="text" class="input-large" value="{$row.name}" name="name"></td>
+				<td>{$row.alias}</td>
+			</tr>
+		</volist>
+	</table>
+<div class="pagination page">
+	<ul>
+		{$page}
+	</ul>
+</div>
+<input type="hidden" id="url" value="/admin/tags/save">

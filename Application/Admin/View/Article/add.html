@@ -1,0 +1,71 @@
+<extend name="Public/base" />
+	<block name="css">
+		<link href="/resource/ueditor_mini1_0_0-utf8-php/themes/default/css/umeditor.min.css" rel="stylesheet">
+		<style>
+			.controls li{
+				list-style: none;
+				line-height: 20px;
+				float: left;
+				margin-left: 10px;
+			}
+		</style>
+	</block>
+<block name="body">
+	<div class="hero-unit">
+		<h2>添加文章</h2>
+	</div>
+	<form action="/admin/article/insert" class="form-horizontal" method="post">
+		<fieldset>
+			<div class="control-group">
+				<label class="control-label">标题</label>
+				<div class="controls">
+					<input type="text" name="title" required="" class="input-xxlarge" maxlength="40" autofocus="">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">所属栏目</label>
+				<div class="controls">
+					<select name="category_id">
+						<volist name="category" id="row">
+							<option value="{$row.id}">{$row.name}</option>
+						</volist>
+					</select>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">标签</label>
+				<div class="controls">
+					<volist name="tags" id="row">
+						<li><input type="checkbox" name="tags[]" value="{$row.id}"> {$row.name} </li>
+					</volist>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">文章简介</label>
+				<div class="controls">
+					<textarea name="description" rows="4" maxlength="128" class="input-xxlarge" placeholder="可以为空，系统自动提取"></textarea>
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<script id="editor" name="content" style="width:800px;height:360px" type="text/plain"></script>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<div class="controls">
+					<input type="submit" value="提交" class="btn btn-primary">
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</block>
+	<block name="js">
+		<script src="/resource/ueditor_mini1_0_0-utf8-php/umeditor.config.js"></script>
+		<script src="/resource/ueditor_mini1_0_0-utf8-php/umeditor.min.js"></script>
+		<script>
+			$(function(){
+				UM.getEditor('editor',{});
+			});
+		</script>
+	</block>

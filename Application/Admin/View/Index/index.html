@@ -1,0 +1,22 @@
+<extend name="Public/base" />
+<block name="body">
+	<div class="hero-unit">
+		<h2>欢迎使用</h2>
+		<p><b class="text-info">Just Think</b> 基于ThinkPHP 3.2.1开发。前端采用 HTML5+CSS3，为了得到最好的效果，请使用 Chrom,Firefox,Opera 等浏览器进行访问!</p>
+	</div>
+		<!--系统信息-->
+		<div class="span4">
+			<h4>版本信息</h4>
+			PHP版本：{$Think.php_version}<br>
+			框架版本：{$Think.version}<br>
+			GD库版本:{$Think.gd_version}<br>
+			程序版本：{:C('VERSION')}
+		</div>
+		<div class="span5">
+			<h4>服务器信息</h4>
+			服务器软件：{$Think.server.server_software}<br>
+			服务器域名：{$Think.server.http_host}<br>
+			服务器IP：{$Think.server.server_addr}<br>
+			站点目录：{$Think.server.document_root}
+		</div>
+	</block>
