@@ -2,7 +2,8 @@
 <html>
 <head>
 	<title>
-			<block name="title"></block> - {$settings.sitename}
+		<block name="title"></block>
+		- {$settings.sitename}
 	</title>
 	<meta charset="UTF-8">
 	<meta name="keywords" content="{$settings.keywords}">
@@ -32,14 +33,14 @@
 					</ul>
 					<ul class="nav pull-right">
 						<li>
-								<form action="{:U('/home/search')}" method="get" class="form-inline form-search" style="margin: 8px 0">
-									<fieldset>
-										<div class="input-append">
-											<input type="text" maxlength="20" required="" placeholder="输入关键词,长度必须大于5" pattern="[\w]{5,}" class="search-query" autocomplete="off" name="keywords" id="keywords">
-											<button type="submit" class="btn"><i class="icon-search"></i> </button>
-										</div>
-									</fieldset>
-								</form>
+							<form action="{:U('/home/search')}" method="get" class="form-inline form-search" style="margin: 8px 0">
+								<fieldset>
+									<div class="input-append">
+										<input type="text" maxlength="20" required="" placeholder="输入关键词,长度必须大于5" pattern="[\w]{5,}" class="search-query" autocomplete="off" name="keywords" id="keywords">
+										<button type="submit" class="btn"><i class="icon-search"></i></button>
+									</div>
+								</fieldset>
+							</form>
 						</li>
 					</ul>
 				</div>
@@ -47,12 +48,20 @@
 		</div>
 	</div>
 </header>
-<block name="body">
-</block>
-<footer class="navbar-fixed-bottom text-center">&copy; 2014 xialeistudio.net</footer>
-<script src="/resource/jquery/jquery-1.8.3.min.js"></script>
-<script src="/resource/bootstrap/js/bootstrap.min.js"></script>
-<block name="js">
-</block>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span7">
+			<block name="left">
+			</block>
+		</div>
+		<div class="span4 right">
+			{:W('Right/right')}
+		</div>
+	</div>
+	<footer class="navbar-fixed-bottom text-center">&copy; 2014 xialeistudio.net</footer>
+	<script src="/resource/jquery/jquery-1.8.3.min.js"></script>
+	<script src="/resource/bootstrap/js/bootstrap.min.js"></script>
+	<block name="js">
+	</block>
 </body>
 </html>

@@ -2,26 +2,20 @@
 <block name="title">
 	首页
 </block>
-<block name="body">
-	<div class="container-fluid">
-		<div class="row-fluid">
-			<div class="span7">
-				<!--body-->
-				<volist name="list" id="row">
-					<article class="item">
-						<h4><a href="/home/article/{$row.alias}">{$row.title}</a> <span class="label label-important"><i class="icon-eye-open"></i> {$row.hits}</span></h4>
-						<p><i class="icon-calendar"></i> {$row.timestamp|date='Y-m-d',###} 分类：<a href="/home/category/{$row.category_id|getCategoryAlias}">{$row.category_id|getCategory}</a></p>
-						<p>{$row.description}</p>
+			<block name="left">
+					<!--body-->
+					<volist name="list" id="row">
+						<article class="item">
+							<h4><a href="/home/article/{$row.alias}">{$row.title}</a> <span class="label label-important"><i class="icon-eye-open"></i> {$row.hits}</span></h4>
+							<p><i class="icon-calendar"></i> {$row.timestamp|date='Y-m-d',###} 分类：<a href="/home/category/{$row.category_id|getCategoryAlias}">{$row.category_id|getCategory}</a></p>
+							<p>{$row.description}</p>
 
-					</article>
-				</volist>
-			</div>
-			<div class="span4">
-				<!--info-->
-			</div>
-		</div>
-	</div>
-</block>
+						</article>
+					</volist>
+				{:W('Right:right')}
+			</block>
+
+
 <block name="js">
 	<script src="/resource/js/home.js"></script>
 </block>

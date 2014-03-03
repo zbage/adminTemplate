@@ -43,3 +43,13 @@ section.comments{
 	border-radius: 8px;
 	padding: 20px;
 }
+.right{
+	margin: 20px 0;
+	border: 1px solid #ccc;
+	padding: 20px;
+	border-radius: 8px;
+}
+.right .item .title{
+	padding-bottom: 4px;
+	border-bottom: 1px dashed #ccceee;
+}

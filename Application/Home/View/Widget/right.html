@@ -1,0 +1,19 @@
+<div class="item">
+	<h4 class="title text-error">博主信息</h4>
+	<p>昵称:{$settings.username}</p>
+	<p><i class="icon-envelope-alt"></i>：{$settings.email}</p>
+</div>
+
+<div class="item">
+	<h4 class="title text-error">博文分类</h4>
+	<foreach name="category" item="row">
+		<li><a href="/home/category/{$row.alias}">{$row.name}</a> </li>
+	</foreach>
+</div>
+
+<div class="item">
+	<h4 class="title text-error">热门标签</h4>
+	<foreach name="tags" item="row">
+		<li><a href="/home/tags/{$row.alias}">{$row.name}</a> </li>
+	</foreach>
+</div>
